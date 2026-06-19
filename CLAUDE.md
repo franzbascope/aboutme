@@ -4,6 +4,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 @AGENTS.md
 
+## Before writing any code
+
+Check `/docs` for a file relevant to the task **before** generating code. This folder holds topic-specific standards that take precedence over general conventions or training data (e.g. `docs/ui.md` covers UI/component work). If a relevant doc exists, follow it exactly; if none covers the task, fall back to the rest of this file and `AGENTS.md`.
+
 ## Project state
 
 This is currently an unmodified `create-next-app` scaffold (App Router, TypeScript, Tailwind v4). `app/page.tsx` and `app/layout.tsx` still contain the default template content — there is no custom application code yet.
