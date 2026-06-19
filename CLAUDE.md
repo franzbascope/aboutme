@@ -47,3 +47,4 @@ When in doubt about an API, check `node_modules/next/dist/docs/` (mirrors the re
 
 @/docs/AGENTS.md
 @/docs/ui.md
+@/docs/overview.md
