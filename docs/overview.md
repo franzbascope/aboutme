@@ -8,7 +8,7 @@ This project is a **single-page personal portfolio website** for Franz. Its goal
 
 The single page should present the following sections, in roughly this order:
 
-1. **Headshot / intro** — a photo of Franz alongside his name and a short tagline.
+1. **Headshot / intro** — a photo of Franz alongside his name and a short tagline, expanded with the About summary below.
 2. **Experience** — professional/work history.
 3. **Projects** — notable projects, with descriptions and (where relevant) screenshots or images.
 4. **Education** — schools, degrees, certifications.
@@ -21,6 +21,20 @@ The single page should present the following sections, in roughly this order:
 - A **headshot photo** is required as part of the intro/hero section.
 - Images should be optimized via `next/image` (per `docs/ui.md` and standard Next.js conventions) rather than raw `<img>` tags.
 - Store image files in `public/images/` (e.g. `public/images/headshot.jpg`) and reference them by their root-relative path (e.g. `/images/headshot.jpg`) in `next/image`'s `src`.
+
+## About summary (from LinkedIn)
+
+Use this as the source text for the intro/about copy (adapt tone per the conversational, retro voice described below rather than pasting verbatim if it reads too corporate):
+
+> I'm a full-stack developer specializing in Java/Spring backend development and React/Angular frontend applications. Recently, I've expanded my focus into Artificial Intelligence—particularly Natural Language Processing (NLP)—and I'm interested in applying these techniques to real-world products and intelligent systems.
+>
+> Completing my Master's degree while working full-time strengthened not only my technical expertise but also my resilience, time management, and ability to deliver under pressure.
+>
+> **What I bring:**
+> - **Full-Stack Development**: End-to-end application development using Java/Spring, React, and Angular
+> - **AI & NLP Knowledge**: Practical understanding of Natural Language Processing and its application in intelligent systems
+> - **Enterprise Experience**: 6+ years delivering solutions in fintech and global finance environments
+> - **Resilience & Discipline**: Proven ability to balance demanding professional work with advanced academic achievement
 
 ## Design inspiration
 

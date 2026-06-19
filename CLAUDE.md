@@ -10,7 +10,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project state
 
-This is currently an unmodified `create-next-app` scaffold (App Router, TypeScript, Tailwind v4). `app/page.tsx` and `app/layout.tsx` still contain the default template content — there is no custom application code yet.
+`app/page.tsx` and `app/layout.tsx` currently contain the default `create-next-app` template content. shadcn/ui is initialized (`components.json`, `lib/utils.ts`, `components/ui/`) — see `docs/ui.md` for the UI component rules before writing any UI code.
 
 ## Commands
 

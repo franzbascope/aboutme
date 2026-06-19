@@ -2,28 +2,32 @@
 
 ## Core rule
 
-All UI must be built from **shadcn/ui** components. Do not write custom components from scratch.
+All UI must be built from **shadcn/ui** components. Do not write custom components from scratch, and do not install any other component library (e.g. no Radix UI, MUI, Chakra, Headless UI, Ant Design, etc. installed directly — shadcn's own underlying primitives, pulled in automatically by the shadcn CLI for a given component, are the only exception).
 
 - Before building any UI, check whether a [shadcn/ui component](https://ui.shadcn.com/docs/components) covers the need (button, input, dialog, dropdown, card, form, table, etc.) and use it.
 - If no shadcn component covers the need, compose existing shadcn primitives instead of writing raw `<div>`/`<button>`/etc. markup with custom styling.
 - Do not hand-roll components that shadcn already provides (e.g. no custom modal when `Dialog` exists, no custom dropdown when `DropdownMenu` exists, no custom button styling when `Button` exists).
-- Do not fork or rewrite a shadcn component's internals. If a shadcn component needs different behavior, use its documented props/variants (`variant`, `size`, `asChild`, etc.) rather than editing the generated source in `components/ui/`.
+- Do not fork or rewrite a shadcn component's internals. If a shadcn component needs different behavior, use its documented props/variants (`variant`, `size`, `render`, etc.) rather than editing the generated source in `components/ui/`.
+- If a generated shadcn component (e.g. `Badge`, `Separator`) pulls in a primitive dependency but the actual usage in the app never exercises the behavior that requires it (no polymorphic `render` prop usage, no interactive/focus-trap behavior needed), simplify that component to a plain element and drop the now-unused dependency rather than keeping it installed unused. Only keep/reinstall the primitive when a usage genuinely needs it (interactive components like `Dialog`, `DropdownMenu`, `Tabs`, `Popover`, etc. generally do).
+
+## New dependencies
+
+Avoid adding new npm dependencies. The project intentionally stays minimal — prefer what's already installed over reaching for a new package.
+
+- Before adding any dependency, check if existing dependencies, Tailwind utilities, or built-in browser/React/Next.js APIs already solve the problem.
+- Only install a new package when it is a hard requirement — i.e. shadcn's own CLI installs it as part of generating a component you actually use (e.g. a primitive package needed by `Dialog` or `Select`), or there is no reasonable way to implement the feature with what's already in `package.json`.
+- Never install a second library that overlaps with something already present (e.g. a second icon set alongside `lucide-react`, a second utility-class-merging helper alongside `tailwind-merge`/`clsx`, a second component/primitive library alongside shadcn's).
+- When in doubt, ask before installing rather than adding a package speculatively.
 
 ## Setup
 
-shadcn/ui is not yet installed in this project. Before writing any UI code, initialize it:
+shadcn/ui is already installed in this project (see `components.json`, `lib/utils.ts`, `components/ui/`). Add new components on demand as they're needed, e.g.:
 
 ```bash
-npx shadcn@latest init
+npx shadcn@latest add dialog
 ```
 
-Then add components on demand as they're needed, e.g.:
-
-```bash
-npx shadcn@latest add button input dialog
-```
-
-This generates component source directly into `components/ui/` — that generated code is the only acceptable place for component implementation. Treat it as vendored: don't hand-edit beyond what the shadcn CLI/docs recommend.
+This generates component source directly into `components/ui/` — that generated code is the only acceptable place for component implementation. Treat it as vendored: don't hand-edit beyond what the shadcn CLI/docs recommend. The CLI may also add a runtime dependency required by that specific component (e.g. a primitive package) — that is an expected, justified addition, not scope creep.
 
 ## File conventions
 
@@ -54,4 +58,4 @@ This generates component source directly into `components/ui/` — that generate
 
 ## Accessibility
 
-- Because shadcn components are built on Radix UI primitives, accessibility (focus management, ARIA attributes, keyboard nav) is handled for you — do not override or remove Radix's generated ARIA attributes, `role`s, or focus handling.
+- This project's shadcn components are built on `@base-ui/react` primitives (see `components.json`), which handle accessibility (focus management, ARIA attributes, keyboard nav) for you — do not override or remove their generated ARIA attributes, `role`s, or focus handling.
