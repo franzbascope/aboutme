@@ -20,6 +20,13 @@ The single page should present the following sections, in roughly this order:
 - This is a visual, image-driven page, not a text-only resume. It should include pictures throughout (e.g. project screenshots, hobby photos) to make it engaging rather than a wall of text.
 - A **headshot photo** is required as part of the intro/hero section.
 - Images should be optimized via `next/image` (per `docs/ui.md` and standard Next.js conventions) rather than raw `<img>` tags.
+- Store image files in `public/images/` (e.g. `public/images/headshot.jpg`) and reference them by their root-relative path (e.g. `/images/headshot.jpg`) in `next/image`'s `src`.
+
+## Design inspiration
+
+[Cassidy Williams' site](https://cassidoo.co) is a good reference for tone and structure: single page, minimalist and text-friendly but anchored by one personal photo, a short conversational bio ("I'm Cassidy, and I like to..."), and a clean nav linking out to social profiles (GitHub, LinkedIn, etc.). Aim for that same balance — professional credibility plus an approachable, personal voice — rather than a dense, corporate-resume feel.
+
+**Visual style: retro.** The overall aesthetic should be retro/vintage rather than a modern, clean SaaS look — think old computer terminals, zines, or early personal homepages. Use a **typewriter font** (e.g. a monospace typeface like `Courier New`, `IBM Plex Mono`, or `Special Elite`) as the primary typeface across the site, not just for code snippets.
 
 ## Structure
 

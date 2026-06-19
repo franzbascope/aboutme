@@ -2,11 +2,11 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-@AGENTS.md
-
 ## Before writing any code
 
-Check `/docs` for a file relevant to the task **before** generating code. This folder holds topic-specific standards that take precedence over general conventions or training data (e.g. `docs/ui.md` covers UI/component work). If a relevant doc exists, follow it exactly; if none covers the task, fall back to the rest of this file and `AGENTS.md`.
+> **Always check `/docs` for a file relevant to the task before generating any code.** This folder holds topic-specific standards that take precedence over general conventions or training data (e.g. `docs/ui.md` covers UI/component work, `docs/overview.md` covers the site's content/structure/design). If a relevant doc exists, follow it exactly; if none covers the task, fall back to the rest of this file and `AGENTS.md`.
+
+@AGENTS.md
 
 ## Project state
 
