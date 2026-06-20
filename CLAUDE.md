@@ -8,6 +8,20 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 @AGENTS.md
 
+## Working on a task
+
+Follow this workflow for every task:
+
+1. **Branch off `main` first.** Before making any changes, create a new branch off `main` with a short, descriptive, kebab-case name (e.g. `add-contact-form`, `fix-hero-spacing`). Never commit work directly to `main`.
+2. **Commit with a descriptive message.** After finishing the work, write a commit message that clearly explains *what* changed and *why*, including key details (affected files/areas, notable decisions, or trade-offs). Avoid vague messages like "update" or "fix".
+3. **Push the branch.** Push the branch to the remote.
+4. **Open a pull request.** Create a PR that includes:
+   - **Summary** — a one or two sentence overview of the change.
+   - **Description** — the context and motivation behind the change.
+   - **Key details** — notable implementation choices, affected areas, and any trade-offs.
+   - **Things to review** — specific areas where reviewer attention is most valuable.
+   - **Testing notes / relevant context** — how the change was tested (or why it wasn't), plus any other context a reviewer needs.
+
 ## Project state
 
 `app/page.tsx` and `app/layout.tsx` currently contain the default `create-next-app` template content. shadcn/ui is initialized (`components.json`, `lib/utils.ts`, `components/ui/`) — see `docs/ui.md` for the UI component rules before writing any UI code.
