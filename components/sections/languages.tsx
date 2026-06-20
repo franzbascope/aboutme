@@ -1,18 +1,15 @@
+import { content } from "@/content/content";
 import { Badge } from "@/components/ui/badge";
 
 import { Section } from "./section";
 
-const languages = [
-  { language: "Spanish", proficiency: "Native", flag: "🇪🇸" },
-  { language: "English", proficiency: "Professional", flag: "🇺🇸" },
-  { language: "Portuguese", proficiency: "Conversational", flag: "🇧🇷" },
-];
+const { title, items } = content.languages;
 
 export function Languages() {
   return (
-    <Section id="languages" title="Languages">
+    <Section id="languages" title={title}>
       <ul className="flex flex-wrap gap-2">
-        {languages.map(({ language, proficiency, flag }) => (
+        {items.map(({ language, proficiency, flag }) => (
           <li key={language}>
             <Badge variant="outline" className="h-auto gap-1.5 px-3 py-1 text-sm">
               <span aria-hidden className="text-base leading-none">

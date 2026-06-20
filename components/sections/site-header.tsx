@@ -1,14 +1,9 @@
+import { content } from "@/content/content";
 import { Button } from "@/components/ui/button";
 
 import { SocialLinks } from "./social-links";
 
-const navItems = [
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Education", href: "#education" },
-  { label: "Languages", href: "#languages" },
-  { label: "Hobbies", href: "#hobbies" },
-];
+const { homeLabel, ariaLabel, items: navItems } = content.nav;
 
 /**
  * Sticky top nav with in-page anchor links (Cassidy-style clean nav) plus
@@ -22,10 +17,10 @@ export function SiteHeader() {
           variant="ghost"
           className="font-bold"
           nativeButton={false}
-          render={<a href="#top">~/franz</a>}
+          render={<a href="#top">{homeLabel}</a>}
         />
         <div className="flex items-center gap-1">
-          <nav aria-label="Sections" className="hidden items-center sm:flex">
+          <nav aria-label={ariaLabel} className="hidden items-center sm:flex">
             {navItems.map(({ label, href }) => (
               <Button
                 key={href}

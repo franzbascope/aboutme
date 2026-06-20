@@ -1,3 +1,4 @@
+import { content } from "@/content/content";
 import { Separator } from "@/components/ui/separator";
 import { Education } from "@/components/sections/education";
 import { Experience } from "@/components/sections/experience";
@@ -24,8 +25,7 @@ export default function Home() {
         <Separator className="mb-6" />
         <div className="flex flex-col items-center justify-between gap-4 text-sm text-muted-foreground sm:flex-row">
           <p className="font-mono">
-            © {new Date().getFullYear()} Franz Bascope — handcrafted by a human,
-            vibe-coded with Claude 🤖
+            © {new Date().getFullYear()} {content.site.footer}
           </p>
           <SocialLinks className="-mr-2" />
         </div>
