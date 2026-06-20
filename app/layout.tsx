@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Space_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+
+import { content } from "@/content/content";
 import "./globals.css";
 
 // Clean retro monospace used sitewide (body + headings via the shared vars).
@@ -18,9 +20,8 @@ const spaceMonoDisplay = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "💻 Franz Bascope — Full-Stack Developer",
-  description:
-    "Personal site of Franz Bascope, a full-stack developer working with Java/Spring, React/Angular, and AI/NLP.",
+  title: content.site.metaTitle,
+  description: content.site.metaDescription,
 };
 
 export default function RootLayout({
@@ -30,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang={content.site.htmlLang}
       className={`${spaceMono.variable} ${spaceMonoDisplay.variable} h-full scroll-smooth antialiased`}
     >
       <body className="min-h-full flex flex-col">

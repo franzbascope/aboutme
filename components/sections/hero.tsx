@@ -1,6 +1,10 @@
 import Image from "next/image";
 
+import { content } from "@/content/content";
+
 import { SocialLinks } from "./social-links";
+
+const { greeting, name, tagline, headshotAlt, bio } = content.hero;
 
 /**
  * Intro / hero: headshot + name + tagline + conversational bio + socials.
@@ -13,7 +17,7 @@ export function Hero() {
       <div className="flex flex-col items-center gap-8 sm:flex-row sm:items-start">
         <Image
           src="/images/headshot.jpg"
-          alt="Headshot of Franz Bascope"
+          alt={headshotAlt}
           width={160}
           height={160}
           priority
@@ -21,27 +25,16 @@ export function Hero() {
         />
         <div className="flex flex-col items-center gap-4 text-center sm:items-start sm:text-left">
           <div>
-            <p className="text-sm text-muted-foreground">Hi, I&apos;m</p>
+            <p className="text-sm text-muted-foreground">{greeting}</p>
             <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              Franz Bascope
+              {name}
             </h1>
-            <p className="mt-1 text-base text-muted-foreground">
-              Full-stack developer — Java/Spring &amp; React/Angular, lately
-              poking at AI &amp; NLP.
-            </p>
+            <p className="mt-1 text-base text-muted-foreground">{tagline}</p>
           </div>
           <div className="max-w-prose space-y-3 text-base leading-relaxed text-foreground/90">
-            <p>
-              Full-stack dev who talks to both ends of the stack — Java/Spring in
-              the back, React/Angular up front. Started in QA breaking other
-              people&apos;s code, then figured I&apos;d build my own and somehow
-              ended up at a global bank.
-            </p>
-            <p>
-              Lately I&apos;ve been teaching machines to read with AI &amp; NLP,
-              and I earned a Master&apos;s while working full-time — mostly a
-              crash course in functioning on very little sleep. ☕
-            </p>
+            {bio.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
           </div>
           <SocialLinks className="-ml-2" />
         </div>

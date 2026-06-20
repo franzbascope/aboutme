@@ -1,35 +1,14 @@
+import { content } from "@/content/content";
+
 import { Section } from "./section";
 
-const hobbies: { title: string; emoji: string; blurb: string }[] = [
-  {
-    title: "Running",
-    emoji: "🏃",
-    blurb:
-      "Running my first half marathon in Buenos Aires this August 23 — 21K and counting down.",
-  },
-  {
-    title: "Gym",
-    emoji: "🏋️",
-    blurb:
-      "Bench press PR: 225 lbs. Deadlift PR: 315 lbs. I'm told these are numbers and not personality traits, but I disagree.",
-  },
-  {
-    title: "Surfing",
-    emoji: "🏄",
-    blurb:
-      "Recently took surfing classes in Natal, Brazil — fully hooked and planning to keep chasing waves.",
-  },
-];
+const { title, description, items } = content.hobbies;
 
 export function Hobbies() {
   return (
-    <Section
-      id="hobbies"
-      title="Hobbies"
-      description="What I get up to away from the keyboard."
-    >
+    <Section id="hobbies" title={title} description={description}>
       <div className="grid gap-4 sm:grid-cols-3">
-        {hobbies.map((hobby) => (
+        {items.map((hobby) => (
           <div
             key={hobby.title}
             className="flex flex-col items-center gap-2 rounded-xl bg-card p-6 text-center ring-1 ring-foreground/10"

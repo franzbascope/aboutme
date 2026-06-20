@@ -7,6 +7,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
+import { content, type ProjectIconKey } from "@/content/content";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -20,53 +21,21 @@ import {
 
 import { Section } from "./section";
 
-// Source: public GitHub repos at github.com/franzbascope.
-const projects: {
-  name: string;
-  icon: LucideIcon;
-  description: string;
-  tags: string[];
-  repo: string;
-  demo?: string;
-}[] = [
-  {
-    name: "Fruit Store",
-    icon: ShoppingCart,
-    description:
-      "A small fruit-store app that demonstrates CQRS and Event Sourcing — every interaction is saved as an event so the full history can be replayed.",
-    tags: ["React", "CQRS", "Event Sourcing"],
-    repo: "https://github.com/franzbascope/fruit_store",
-    demo: "https://franzbascope.github.io/fruit_store/",
-  },
-  {
-    name: "South Park Avatar",
-    icon: UserRound,
-    description:
-      "A React app for creating and customizing South Park–style avatars — hats, eyes, shoes, pants and more — built around a clean component design.",
-    tags: ["React", "JavaScript"],
-    repo: "https://github.com/franzbascope/Avatar",
-    demo: "https://franzbascope.github.io/Avatar/",
-  },
-  {
-    name: "Formula 1 SQL",
-    icon: Trophy,
-    description:
-      "Transforms raw Formula 1 CSV data into a highly structured Oracle SQL database — enforcing integrity with constraints and tuning performance via indexes and partitions.",
-    tags: ["SQL", "Oracle", "Data Modeling"],
-    repo: "https://github.com/franzbascope/formula1_sql",
-  },
-];
+// Maps the plain-data icon key in content to the actual lucide icon component.
+const iconMap: Record<ProjectIconKey, LucideIcon> = {
+  shoppingCart: ShoppingCart,
+  userRound: UserRound,
+  trophy: Trophy,
+};
+
+const { title, description, codeLabel, demoLabel, items } = content.projects;
 
 export function Projects() {
   return (
-    <Section
-      id="projects"
-      title="Projects"
-      description="A few things I've built — code and live demos below."
-    >
+    <Section id="projects" title={title} description={description}>
       <div className="grid gap-4 sm:grid-cols-2">
-        {projects.map((project) => {
-          const Icon = project.icon;
+        {items.map((project) => {
+          const Icon = iconMap[project.iconKey];
           return (
             <Card key={project.name} className="flex flex-col">
               <CardHeader>
@@ -95,7 +64,7 @@ export function Projects() {
                       rel="noopener noreferrer"
                     >
                       <Code2 />
-                      Code
+                      {codeLabel}
                     </a>
                   }
                 />
@@ -111,7 +80,7 @@ export function Projects() {
                         rel="noopener noreferrer"
                       >
                         <ExternalLink />
-                        Demo
+                        {demoLabel}
                       </a>
                     }
                   />

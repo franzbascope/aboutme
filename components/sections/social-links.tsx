@@ -1,5 +1,6 @@
-import type { SVGProps } from "react";
+import type { FC, SVGProps } from "react";
 
+import { content } from "@/content/content";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -51,44 +52,36 @@ function YouTubeIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-const socials = [
-  {
-    label: "GitHub",
-    href: "https://github.com/franzbascope",
-    icon: GitHubIcon,
-  },
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/franzbascope",
-    icon: LinkedInIcon,
-  },
-  {
-    label: "YouTube",
-    href: "https://www.youtube.com/@franzbasco",
-    icon: YouTubeIcon,
-  },
-];
+// Maps each social link's label (from content) to its inline brand icon.
+const iconMap: Record<string, FC<SVGProps<SVGSVGElement>>> = {
+  GitHub: GitHubIcon,
+  LinkedIn: LinkedInIcon,
+  YouTube: YouTubeIcon,
+};
 
 export function SocialLinks({ className }: { className?: string }) {
   return (
     <nav
-      aria-label="Social profiles"
+      aria-label={content.social.ariaLabel}
       className={cn("flex items-center gap-1", className)}
     >
-      {socials.map(({ label, href, icon: Icon }) => (
-        <Button
-          key={label}
-          variant="ghost"
-          size="icon"
-          aria-label={label}
-          nativeButton={false}
-          render={
-            <a href={href} target="_blank" rel="noopener noreferrer">
-              <Icon />
-            </a>
-          }
-        />
-      ))}
+      {content.social.links.map(({ label, href }) => {
+        const Icon = iconMap[label];
+        return (
+          <Button
+            key={label}
+            variant="ghost"
+            size="icon"
+            aria-label={label}
+            nativeButton={false}
+            render={
+              <a href={href} target="_blank" rel="noopener noreferrer">
+                <Icon />
+              </a>
+            }
+          />
+        );
+      })}
     </nav>
   );
 }
