@@ -2,9 +2,12 @@ import type { SiteContent } from "./types";
 
 /**
  * Portuguese (pt-BR) content. Natural, conversational translation of `en.ts`
- * that keeps the same retro-personal tone. Locale-invariant fields (URLs,
- * iconKey, social label, flag, emoji) match `en.ts` exactly; `period` dates are
- * left as written there since they're proper-noun-like labels on the site.
+ * that keeps the same retro-personal tone — phrased by meaning, not
+ * word-for-word. "Hobbies" reads as a common loanword in Brazilian Portuguese,
+ * so it stays in English; gym PRs are given in kilograms rather than pounds.
+ * Locale-invariant fields (URLs, iconKey, social label, flag, emoji) match
+ * `en.ts` exactly; `period` dates are left as written there since they're
+ * proper-noun-like labels on the site.
  */
 export const pt = {
   site: {
@@ -173,13 +176,13 @@ export const pt = {
         title: "Corrida",
         emoji: "🏃",
         blurb:
-          "Vou correr minha primeira meia maratona em Buenos Aires neste dia 23 de agosto — 21K e a contagem regressiva já começou.",
+          "Vou correr minha primeira meia maratona em Buenos Aires no dia 23 de agosto — 21K e a contagem regressiva já começou.",
       },
       {
         title: "Academia",
         emoji: "🏋️",
         blurb:
-          "Recorde no supino: 225 lbs. Recorde no levantamento terra: 315 lbs. Me dizem que são só números e não traços de personalidade, mas eu discordo.",
+          "Recorde no supino: 100 kg. Recorde no levantamento terra: 140 kg. Dizem que são só números e não traços de personalidade, mas eu discordo.",
       },
       {
         title: "Surfe",

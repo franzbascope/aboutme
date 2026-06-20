@@ -2,9 +2,12 @@ import type { SiteContent } from "./types";
 
 /**
  * Spanish (es) content. Natural, conversational translation of `en.ts` that
- * keeps the same retro-personal tone. Locale-invariant fields (URLs, iconKey,
- * social label, flag, emoji) match `en.ts` exactly; `period` dates are left as
- * written there since they're proper-noun-like labels on the site.
+ * keeps the same retro-personal tone — phrased by meaning, not word-for-word.
+ * "Hobbies" is intentionally left in English (it reads as a loanword in
+ * Spanish); gym PRs are given in kilograms rather than pounds. Locale-invariant
+ * fields (URLs, iconKey, social label, flag, emoji) match `en.ts` exactly;
+ * `period` dates are left as written there since they're proper-noun-like
+ * labels on the site.
  */
 export const es = {
   site: {
@@ -24,7 +27,7 @@ export const es = {
       { label: "Educación", href: "#education" },
       { label: "Proyectos", href: "#projects" },
       { label: "Idiomas", href: "#languages" },
-      { label: "Pasatiempos", href: "#hobbies" },
+      { label: "Hobbies", href: "#hobbies" },
     ],
   },
 
@@ -41,11 +44,11 @@ export const es = {
     greeting: "Hola, soy",
     name: "Franz Bascope",
     tagline:
-      "Desarrollador full-stack — Java/Spring y React/Angular, y últimamente trasteando con IA y PLN.",
+      "Desarrollador full-stack — Java/Spring y React/Angular, y últimamente experimentando con IA y PLN.",
     headshotAlt: "Foto de Franz Bascope",
     bio: [
-      "Desarrollador full-stack que se entiende con los dos extremos del stack — Java/Spring por detrás, React/Angular por delante. Empecé en QA rompiendo el código de los demás, luego pensé en construir el mío propio y de algún modo acabé en un banco global.",
-      "Últimamente he estado enseñando a las máquinas a leer con IA y PLN, y saqué un máster mientras trabajaba a tiempo completo — más que nada, un curso intensivo de cómo funcionar durmiendo muy poco. ☕",
+      "Desarrollador full-stack que se mueve con soltura en los dos extremos del stack — Java/Spring por detrás, React/Angular por delante. Empecé en QA rompiendo el código de los demás, después se me ocurrió construir el mío propio y de algún modo terminé en un banco global.",
+      "Últimamente ando enseñando a las máquinas a leer con IA y PLN, y saqué un máster mientras trabajaba a tiempo completo — más que nada, un curso intensivo de cómo funcionar durmiendo poquísimo. ☕",
     ],
   },
 
@@ -166,20 +169,20 @@ export const es = {
   },
 
   hobbies: {
-    title: "Pasatiempos",
-    description: "Lo que hago lejos del teclado.",
+    title: "Hobbies",
+    description: "Lo que hago cuando me alejo del teclado.",
     items: [
       {
         title: "Correr",
         emoji: "🏃",
         blurb:
-          "Corro mi primera media maratón en Buenos Aires este 23 de agosto — 21K y la cuenta atrás en marcha.",
+          "Voy a correr mi primera media maratón en Buenos Aires el 23 de agosto — 21K y la cuenta regresiva ya empezó.",
       },
       {
         title: "Gimnasio",
         emoji: "🏋️",
         blurb:
-          "Récord en press de banca: 225 lbs. Récord en peso muerto: 315 lbs. Me dicen que son solo números y no rasgos de personalidad, pero no estoy de acuerdo.",
+          "Récord en press de banca: 100 kg. Récord en peso muerto: 140 kg. Me dicen que son solo números y no rasgos de personalidad, pero no opino lo mismo.",
       },
       {
         title: "Surf",
