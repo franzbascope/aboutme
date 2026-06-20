@@ -12,7 +12,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Follow this workflow for every task:
 
-1. **Branch off `main` first.** Before making any changes, create a new branch off `main` with a short, descriptive, kebab-case name (e.g. `add-contact-form`, `fix-hero-spacing`). Never commit work directly to `main`.
+1. **Pull `main`, then branch off it.** Before making any changes, always `git checkout main` and `git pull` to get the latest, then create a new branch off the up-to-date `main` with a short, descriptive, kebab-case name (e.g. `add-contact-form`, `fix-hero-spacing`). Never commit work directly to `main`.
 2. **Commit with a descriptive message.** After finishing the work, write a commit message that clearly explains *what* changed and *why*, including key details (affected files/areas, notable decisions, or trade-offs). Avoid vague messages like "update" or "fix".
 3. **Push the branch.** Push the branch to the remote.
 4. **Open a pull request.** Create a PR that includes:
