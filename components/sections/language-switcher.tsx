@@ -10,11 +10,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { LOCALES, type Locale } from "@/content";
 import { useContent, useLocale } from "@/lib/i18n";
+import { ChevronDown } from "lucide-react";
 
 /**
- * Flag-based language switcher in the header. Shows the active locale's flag
- * and opens a radio menu of the three locales (mirrors the flags used in the
- * Languages section). Selection is persisted via the LocaleProvider.
+ * Language switcher in the header. Shows the active locale's flag plus its
+ * short code (EN/ES/PT) and a chevron so it reads clearly as a clickable
+ * dropdown, then opens a radio menu of the three locales (mirrors the flags
+ * used in the Languages section). Selection is persisted via the LocaleProvider.
  */
 export function LanguageSwitcher() {
   const { locale, setLocale } = useLocale();
@@ -27,13 +29,15 @@ export function LanguageSwitcher() {
         render={
           <Button
             variant="ghost"
-            size="icon"
+            size="sm"
             aria-label={nav.languageLabel}
             title={nav.languageLabel}
           >
             <span aria-hidden className="text-base leading-none">
               {active.flag}
             </span>
+            <span>{active.code.toUpperCase()}</span>
+            <ChevronDown aria-hidden className="opacity-60" />
           </Button>
         }
       />
