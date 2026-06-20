@@ -14,35 +14,35 @@ const experiences = [
     role: "Applications Development Sr Programmer",
     period: "Jun 2023 – Present",
     summary:
-      "Migrated legacy AngularJS projects to modern Angular with TypeScript, and built Spring Boot services using Spring Cloud Gateway with dynamic routes to cut boilerplate dramatically. Led an auth migration to Ping Access (JWKS token validation) impacting 2000+ users, gaining hands-on Openshift and Kubernetes experience.",
+      "Full-stack work across modern Angular and TypeScript on the front end and Java / Spring Boot on the back end, including Spring Cloud Gateway. Hands-on with JWKS-based authentication, and deploying and operating services on OpenShift and Kubernetes in a large-scale enterprise environment.",
   },
   {
     company: "Credible",
     role: "Software Engineer",
     period: "Jan 2022 – May 2023",
     summary:
-      "Built a referral program from scratch on Ruby on Rails and React, integrating Extole and Salesforce. Created backend services for the careers page against the Greenhouse API, and stood up a headless CMS for a new blog.",
+      "Full-stack development with Ruby on Rails and React, building backend services and third-party API integrations, plus front-end features and content tooling.",
   },
   {
     company: "Infinity Sales Group",
     role: "Software Engineer",
     period: "Mar 2020 – Dec 2021",
     summary:
-      "Built online shopping carts in Angular and REST/SOAP integrations with providers like AT&T, Verizon, and Hughes. Managed AWS (Elastic Beanstalk, RDS, S3) and maintained legacy YII PHP / AngularJS code. (Boca Raton, FL)",
+      "Front-end development in Angular and REST/SOAP API integrations, with hands-on AWS experience (Elastic Beanstalk, RDS, S3) and maintenance of legacy PHP and AngularJS code. (Boca Raton, FL)",
   },
   {
     company: "TOTVS",
     role: "System Analyst",
     period: "Jul 2017 – Dec 2019",
     summary:
-      "Developed advanced reports with MSSQL stored procedures, backend services in C# / ASP.NET integrated with the TOTVS ERP, and mobile features in React Native.",
+      "Backend development in C# / ASP.NET with ERP integration, advanced MSSQL stored procedures, and mobile development in React Native.",
   },
   {
     company: "Consensus",
     role: "QA Engineer",
     period: "Dec 2015 – Jun 2017",
     summary:
-      "Coordinated production deployments and built/maintained the regression test suite. (Utah — remote)",
+      "Quality engineering — building and maintaining automated regression tests and coordinating production deployments. (Utah — remote)",
   },
 ];
 

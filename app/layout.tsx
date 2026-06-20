@@ -17,7 +17,7 @@ const spaceMonoDisplay = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Franz Bascope — Full-Stack Developer",
+  title: "💻 Franz Bascope — Full-Stack Developer",
   description:
     "Personal site of Franz Bascope, a full-stack developer working with Java/Spring, React/Angular, and AI/NLP.",
 };

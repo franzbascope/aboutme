@@ -7,13 +7,18 @@ import {
 
 import { Section } from "./section";
 
-// Source: docs/resume.pdf
 const education = [
+  {
+    school: "University of Tampa",
+    credential: "MBA",
+    period: "In progress",
+    note: "Just getting started — pairing the engineering background with the business side.",
+  },
   {
     school: "University of South Florida",
     credential: "M.S. Computer Engineering (focus on AI)",
     period: "2025",
-    note: "Completed while working full-time, with a focus on AI — NLP and deep learning.",
+    note: "Earned my Master's in Computer Engineering while working full-time, with a focus on AI — NLP and deep learning.",
   },
   {
     school: "Universidad NUR, Bolivia",

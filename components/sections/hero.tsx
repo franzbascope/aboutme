@@ -30,18 +30,17 @@ export function Hero() {
               poking at AI &amp; NLP.
             </p>
           </div>
-          <div className="max-w-prose space-y-3 text-sm leading-relaxed text-foreground/90">
+          <div className="max-w-prose space-y-3 text-base leading-relaxed text-foreground/90">
             <p>
-              I build things end to end — Java/Spring on the back, React or
-              Angular up front — and I&apos;ve spent 6+ years shipping in
-              fintech and global-finance shops. Recently I&apos;ve been pulled
-              toward AI, especially natural language processing, and figuring
-              out how to put it into real products.
+              Full-stack dev who talks to both ends of the stack — Java/Spring in
+              the back, React/Angular up front. Started in QA breaking other
+              people&apos;s code, then figured I&apos;d build my own and somehow
+              ended up at a global bank.
             </p>
             <p>
-              I wrapped up a Master&apos;s while working full-time, which mostly
-              taught me how to stay calm and deliver when there&apos;s not
-              enough time for any of it.
+              Lately I&apos;ve been teaching machines to read with AI &amp; NLP,
+              and I earned a Master&apos;s while working full-time — mostly a
+              crash course in functioning on very little sleep. ☕
             </p>
           </div>
           <SocialLinks className="-ml-2" />
