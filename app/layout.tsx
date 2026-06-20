@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 // Clean retro monospace used sitewide (body + headings via the shared vars).
@@ -32,7 +33,10 @@ export default function RootLayout({
       lang="en"
       className={`${spaceMono.variable} ${spaceMonoDisplay.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
