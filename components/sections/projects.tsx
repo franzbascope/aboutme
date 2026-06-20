@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Code2,
   ExternalLink,
@@ -7,7 +9,8 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-import { content, type ProjectIconKey } from "@/content/content";
+import { type ProjectIconKey } from "@/content";
+import { useContent } from "@/lib/i18n";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -28,9 +31,9 @@ const iconMap: Record<ProjectIconKey, LucideIcon> = {
   trophy: Trophy,
 };
 
-const { title, description, codeLabel, demoLabel, items } = content.projects;
-
 export function Projects() {
+  const { title, description, codeLabel, demoLabel, items } =
+    useContent().projects;
   return (
     <Section id="projects" title={title} description={description}>
       <div className="grid gap-4 sm:grid-cols-2">

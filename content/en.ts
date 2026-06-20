@@ -1,60 +1,20 @@
+import type { SiteContent } from "./types";
+
 /**
- * Central content source for the whole site.
+ * English content (the default locale and the canonical shape).
  *
- * Every user-facing string and data list lives here so copy can be edited in
- * one place. The shape is fully typed (see the exported types below) so that
- * future locale files (`content/es.ts`, `content/pt.ts`) can `satisfies
- * SiteContent` to guarantee they stay in sync. No locale routing/switcher is
- * wired up yet — components import `content` directly.
+ * `satisfies SiteContent` keeps this in sync with `es.ts` / `pt.ts` — the
+ * three locale files share one structural type (see `./types`), so adding or
+ * removing a field here surfaces as a type error in the translations until
+ * they match.
  *
  * Presentational, non-serializable bits (lucide icons, inline brand-icon SVGs)
  * stay in the components; content references them by a stable string key
  * (`iconKey` / social `label`) that the component maps back to a component.
+ * Those keys, URLs, flags and emoji are locale-invariant and must match across
+ * all three files.
  */
-
-export type NavItem = { label: string; href: string };
-export type SocialLink = { label: string; href: string };
-
-export type Job = {
-  company: string;
-  role: string;
-  period: string;
-  summary: string;
-};
-
-/** `iconKey` maps to a LucideIcon in projects.tsx (keeps this file plain data). */
-export type ProjectIconKey = "shoppingCart" | "userRound" | "trophy";
-export type Project = {
-  name: string;
-  iconKey: ProjectIconKey;
-  description: string;
-  tags: string[];
-  repo: string;
-  demo?: string;
-};
-
-export type Education = {
-  school: string;
-  credential: string;
-  period: string;
-  note: string;
-};
-
-export type Language = {
-  language: string;
-  proficiency: string;
-  flag: string;
-};
-
-export type Hobby = {
-  title: string;
-  emoji: string;
-  blurb: string;
-};
-
-export type SiteContent = typeof content;
-
-export const content = {
+export const en = {
   site: {
     metaTitle: "💻 Franz Bascope — Full-Stack Developer",
     metaDescription:
@@ -67,13 +27,14 @@ export const content = {
   nav: {
     homeLabel: "~/franz",
     ariaLabel: "Sections",
+    languageLabel: "Language",
     items: [
       { label: "Experience", href: "#experience" },
-      { label: "Projects", href: "#projects" },
       { label: "Education", href: "#education" },
+      { label: "Projects", href: "#projects" },
       { label: "Languages", href: "#languages" },
       { label: "Hobbies", href: "#hobbies" },
-    ] satisfies NavItem[],
+    ],
   },
 
   social: {
@@ -83,7 +44,7 @@ export const content = {
       { label: "GitHub", href: "https://github.com/franzbascope" },
       { label: "LinkedIn", href: "https://www.linkedin.com/in/franzbascope" },
       { label: "YouTube", href: "https://www.youtube.com/@franzbasco" },
-    ] satisfies SocialLink[],
+    ],
   },
 
   hero: {
@@ -138,7 +99,37 @@ export const content = {
         summary:
           "Quality engineering — building and maintaining automated regression tests and coordinating production deployments. (Utah — remote)",
       },
-    ] satisfies Job[],
+    ],
+  },
+
+  education: {
+    title: "Education",
+    items: [
+      {
+        school: "University of Tampa",
+        credential: "MBA",
+        period: "In progress",
+        note: "Just getting started — pairing the engineering background with the business side.",
+      },
+      {
+        school: "University of South Florida",
+        credential: "M.S. Computer Engineering (focus on AI)",
+        period: "2025",
+        note: "Earned my Master's in Computer Engineering while working full-time, with a focus on AI — NLP and deep learning.",
+      },
+      {
+        school: "Universidad NUR, Bolivia",
+        credential: "B.S. Computer Sciences",
+        period: "2020",
+        note: "",
+      },
+      {
+        school: "Universidad NUR, Bolivia",
+        credential: "Certificate — Microservices",
+        period: "2022",
+        note: "",
+      },
+    ],
   },
 
   projects: {
@@ -174,37 +165,7 @@ export const content = {
         tags: ["SQL", "Oracle", "Data Modeling"],
         repo: "https://github.com/franzbascope/formula1_sql",
       },
-    ] satisfies Project[],
-  },
-
-  education: {
-    title: "Education",
-    items: [
-      {
-        school: "University of Tampa",
-        credential: "MBA",
-        period: "In progress",
-        note: "Just getting started — pairing the engineering background with the business side.",
-      },
-      {
-        school: "University of South Florida",
-        credential: "M.S. Computer Engineering (focus on AI)",
-        period: "2025",
-        note: "Earned my Master's in Computer Engineering while working full-time, with a focus on AI — NLP and deep learning.",
-      },
-      {
-        school: "Universidad NUR, Bolivia",
-        credential: "B.S. Computer Sciences",
-        period: "2020",
-        note: "",
-      },
-      {
-        school: "Universidad NUR, Bolivia",
-        credential: "Certificate — Microservices",
-        period: "2022",
-        note: "",
-      },
-    ] satisfies Education[],
+    ],
   },
 
   languages: {
@@ -213,7 +174,7 @@ export const content = {
       { language: "Spanish", proficiency: "Native", flag: "🇪🇸" },
       { language: "English", proficiency: "Professional", flag: "🇺🇸" },
       { language: "Portuguese", proficiency: "Conversational", flag: "🇧🇷" },
-    ] satisfies Language[],
+    ],
   },
 
   hobbies: {
@@ -238,6 +199,6 @@ export const content = {
         blurb:
           "Recently took surfing classes in Natal, Brazil — fully hooked and planning to keep chasing waves.",
       },
-    ] satisfies Hobby[],
+    ],
   },
-} as const;
+} satisfies SiteContent;

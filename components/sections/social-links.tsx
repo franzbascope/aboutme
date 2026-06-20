@@ -1,6 +1,8 @@
+"use client";
+
 import type { FC, SVGProps } from "react";
 
-import { content } from "@/content/content";
+import { useContent } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -60,12 +62,13 @@ const iconMap: Record<string, FC<SVGProps<SVGSVGElement>>> = {
 };
 
 export function SocialLinks({ className }: { className?: string }) {
+  const { social } = useContent();
   return (
     <nav
-      aria-label={content.social.ariaLabel}
+      aria-label={social.ariaLabel}
       className={cn("flex items-center gap-1", className)}
     >
-      {content.social.links.map(({ label, href }) => {
+      {social.links.map(({ label, href }) => {
         const Icon = iconMap[label];
         return (
           <Button
