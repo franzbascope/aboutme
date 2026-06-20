@@ -1,15 +1,18 @@
-import { content } from "@/content/content";
-import { Button } from "@/components/ui/button";
+"use client";
 
+import { Button } from "@/components/ui/button";
+import { useContent } from "@/lib/i18n";
+
+import { LanguageSwitcher } from "./language-switcher";
 import { SocialLinks } from "./social-links";
 
-const { homeLabel, ariaLabel, items: navItems } = content.nav;
-
 /**
- * Sticky top nav with in-page anchor links (Cassidy-style clean nav) plus
- * social icons. Anchors map to the section ids set in each section component.
+ * Sticky top nav with in-page anchor links (Cassidy-style clean nav) plus a
+ * language switcher and social icons. Anchors map to the section ids set in
+ * each section component.
  */
 export function SiteHeader() {
+  const { homeLabel, ariaLabel, items: navItems } = useContent().nav;
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur">
       <div className="mx-auto flex h-14 w-full max-w-3xl items-center justify-between gap-2 px-4">
@@ -31,6 +34,7 @@ export function SiteHeader() {
               />
             ))}
           </nav>
+          <LanguageSwitcher />
           <SocialLinks />
         </div>
       </div>

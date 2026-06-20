@@ -1,17 +1,17 @@
+"use client";
+
 import {
   Card,
   CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-
-import { content } from "@/content/content";
+import { useContent } from "@/lib/i18n";
 
 import { Section } from "./section";
 
-const { title, items } = content.education;
-
 export function Education() {
+  const { title, items } = useContent().education;
   return (
     <Section id="education" title={title}>
       <div className="grid gap-4">

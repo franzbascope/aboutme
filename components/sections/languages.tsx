@@ -1,11 +1,12 @@
-import { content } from "@/content/content";
+"use client";
+
 import { Badge } from "@/components/ui/badge";
+import { useContent } from "@/lib/i18n";
 
 import { Section } from "./section";
 
-const { title, items } = content.languages;
-
 export function Languages() {
+  const { title, items } = useContent().languages;
   return (
     <Section id="languages" title={title}>
       <ul className="flex flex-wrap gap-2">

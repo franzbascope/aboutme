@@ -1,10 +1,11 @@
-import { content } from "@/content/content";
+"use client";
+
+import { useContent } from "@/lib/i18n";
 
 import { Section } from "./section";
 
-const { title, description, items } = content.hobbies;
-
 export function Hobbies() {
+  const { title, description, items } = useContent().hobbies;
   return (
     <Section id="hobbies" title={title} description={description}>
       <div className="grid gap-4 sm:grid-cols-3">

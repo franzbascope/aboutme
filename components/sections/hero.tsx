@@ -1,10 +1,10 @@
+"use client";
+
 import Image from "next/image";
 
-import { content } from "@/content/content";
+import { useContent } from "@/lib/i18n";
 
 import { SocialLinks } from "./social-links";
-
-const { greeting, name, tagline, headshotAlt, bio } = content.hero;
 
 /**
  * Intro / hero: headshot + name + tagline + conversational bio + socials.
@@ -12,6 +12,7 @@ const { greeting, name, tagline, headshotAlt, bio } = content.hero;
  * a friendlier, retro-personal voice (per the cassidoo.co reference).
  */
 export function Hero() {
+  const { greeting, name, tagline, headshotAlt, bio } = useContent().hero;
   return (
     <section id="top" className="scroll-mt-20 py-12">
       <div className="flex flex-col items-center gap-8 sm:flex-row sm:items-start">

@@ -1,17 +1,17 @@
+"use client";
+
 import {
   Card,
   CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-
-import { content } from "@/content/content";
+import { useContent } from "@/lib/i18n";
 
 import { Section } from "./section";
 
-const { title, description, jobs } = content.experience;
-
 export function Experience() {
+  const { title, description, jobs } = useContent().experience;
   return (
     <Section id="experience" title={title} description={description}>
       <div className="grid gap-4">
