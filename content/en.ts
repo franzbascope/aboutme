@@ -119,14 +119,14 @@ export const en = {
       },
       {
         school: "Universidad NUR, Bolivia",
-        credential: "B.S. Computer Sciences",
-        period: "2020",
+        credential: "Certificate — Microservices",
+        period: "2022",
         note: "",
       },
       {
         school: "Universidad NUR, Bolivia",
-        credential: "Certificate — Microservices",
-        period: "2022",
+        credential: "B.S. Computer Sciences",
+        period: "2020",
         note: "",
       },
     ],

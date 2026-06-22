@@ -111,14 +111,14 @@ export const pt = {
       },
       {
         school: "Universidad NUR, Bolívia",
-        credential: "Bacharelado em Ciência da Computação",
-        period: "2020",
+        credential: "Certificado — Microsserviços",
+        period: "2022",
         note: "",
       },
       {
         school: "Universidad NUR, Bolívia",
-        credential: "Certificado — Microsserviços",
-        period: "2022",
+        credential: "Bacharelado em Ciência da Computação",
+        period: "2020",
         note: "",
       },
     ],
