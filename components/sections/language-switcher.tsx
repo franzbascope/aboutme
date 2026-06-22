@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -22,9 +24,10 @@ export function LanguageSwitcher() {
   const { locale, setLocale } = useLocale();
   const { nav } = useContent();
   const active = LOCALES.find((l) => l.code === locale) ?? LOCALES[0];
+  const [open, setOpen] = useState(false);
 
   return (
-    <DropdownMenu>
+    <DropdownMenu open={open} onOpenChange={setOpen}>
       <DropdownMenuTrigger
         render={
           <Button
@@ -44,7 +47,10 @@ export function LanguageSwitcher() {
       <DropdownMenuContent align="end">
         <DropdownMenuRadioGroup
           value={locale}
-          onValueChange={(value) => setLocale(value as Locale)}
+          onValueChange={(value) => {
+            setLocale(value as Locale);
+            setOpen(false);
+          }}
         >
           {LOCALES.map(({ code, flag, label }) => (
             <DropdownMenuRadioItem key={code} value={code}>
